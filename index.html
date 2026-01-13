@@ -401,6 +401,119 @@
       line-height: 1.8;
     }
     .rules ul{ margin: 6px 0 0 16px; padding:0; }
+/* ====== 白背景 + 背景画像を濃く ====== */
+:root{ color-scheme: light; }
+
+body{
+  background: #ffffff !important;
+  color: #0b1220 !important;
+}
+
+/* 背景画像（gifu.png）を“白背景に濃く”見せる */
+body::before{
+  opacity: 0.72 !important;                 /* ←濃さ（0.6〜0.85で調整） */
+  transform: none !important;
+  filter: none !important;
+  mix-blend-mode: multiply;                 /* 白に自然に馴染ませる */
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: clamp(520px, 92vw, 1100px) auto !important;
+}
+
+/* ====== 全体を白系ガラスに寄せる（見やすさ確保） ====== */
+.brand .sub{ color: rgba(15,23,42,.68) !important; }
+
+.badge{
+  background: rgba(255,255,255,.72) !important;
+  color: rgba(15,23,42,.65) !important;
+  border-color: rgba(15,23,42,.14) !important;
+}
+.badge b{ color:#0b1220 !important; }
+
+.app{
+  background: rgba(255,255,255,.22) !important;
+  border-color: rgba(15,23,42,.12) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.card{
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(15,23,42,.12) !important;
+  color:#0b1220 !important;
+}
+
+.title{ color:#0b1220 !important; }
+.icon{
+  border-color: rgba(56,189,248,.45) !important;
+  background: rgba(56,189,248,.08) !important;
+}
+
+/* ====== ここが本題：メンバー&条件を“もっと薄く” ====== */
+.card.members{
+  background: rgba(255,255,255,.08) !important;   /* ←カード自体をかなり薄く */
+  border-color: rgba(15,23,42,.10) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* メンバー側の中の薄い背景も全部さらに薄く */
+.card.members .card-h,
+.card.members .card-b,
+.card.members .row,
+.card.members .listHead,
+.card.members .listTotal,
+.card.members .checkCell,
+.card.members .msg{
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* 枠線だけ残す（もっと消したければ border:none に） */
+.card.members .row,
+.card.members .listHead{
+  border-color: rgba(15,23,42,.10) !important;
+}
+
+/* 入力欄：薄くしつつ“文字は読める”ように */
+input[type="text"], input[type="number"]{
+  background: rgba(255,255,255,.78) !important;
+  border-color: rgba(15,23,42,.16) !important;
+  color:#0b1220 !important;
+  -webkit-text-fill-color:#0b1220 !important;
+}
+
+.card.members input[type="text"],
+.card.members input[type="number"]{
+  background: rgba(255,255,255,.45) !important;  /* ←メンバー側だけさらに薄く */
+}
+
+.checkCell{
+  background: rgba(255,255,255,.40) !important;
+  border-color: rgba(15,23,42,.10) !important;
+}
+
+.btn-o{
+  background: rgba(255,255,255,.30) !important;
+  border-color: rgba(56,189,248,.55) !important;
+}
+
+/* 結果テーブルも白に馴染ませる */
+.tableWrap{
+  background: rgba(255,255,255,.60) !important;
+  border-color: rgba(15,23,42,.10) !important;
+}
+thead th{
+  background: rgba(255,255,255,.92) !important;
+  color: rgba(15,23,42,.65) !important;
+  border-bottom: 1px solid rgba(15,23,42,.10) !important;
+}
+tbody tr:nth-child(2n){ background: rgba(15,23,42,.03) !important; }
+tbody td{ border-bottom: 1px solid rgba(15,23,42,.06) !important; }
+
+.rules{
+  background: rgba(255,255,255,.65) !important;
+  color: rgba(15,23,42,.72) !important;
+  border-color: rgba(15,23,42,.10) !important;
+    }
   </style>
 </head>
 
